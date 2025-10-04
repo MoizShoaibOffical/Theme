@@ -1,0 +1,212 @@
+.side-menu-icons.menu-icons-with-label { width: 100% !important; padding: 0; margin: 0; }
+.side-menu-icons.menu-icons-with-label ul { padding-left: 0; margin: 0; }
+.side-menu-icons.menu-icons-with-label li { list-style: none; margin: 0px 0; }
+.side-menu-icons.menu-icons-with-label a { display: flex; flex-direction: column; align-items: center; gap: 0px; text-decoration: none; padding: 0; }
+.side-menu-icons.menu-icons-with-label a span { font-size: 11px; color: var(--text-color, #111827); max-width: calc(var(--zeno-sidebar-w) - 12px); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.side-menu-icons.menu-icons-with-label a div svg { width: 24px; height: 24px; }
+.side-menu-icons.menu-icons-with-label li.active a div { background: #eaf3ff; border-radius: 10px; padding: 8px; }
+/* Compact icon + label (stacked) workspace sidebar */
+.sidebar {
+  width: 60px; /* apne requirement ke mutabiq kam kar lo */
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto; /* center align */
+}
+
+.sidebar .nav-item {
+  text-align: center;
+  margin: 8px 0; /* top-bottom space */
+}
+
+/* Container adjustments 
+.desk-container .layout-side-section {
+  width: auto !important;          
+  min-width: 50px !important;
+  padding: 4px 0 !important;      
+  border-right: 1px solid var(--border-color, #e5e7eb);
+}
+*/
+
+
+/* Sidebar text 
+.layout-side-section .desk-sidebar-item-label {
+  font-size: 13px !important;  
+  white-space: nowrap;         
+}
+*/
+
+/* Explicitly override Bootstrap grid width for the side section 
+.desk-container .col-lg-2.layout-side-section {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 50px !important;
+  flex: 0 0 50px !important;
+  max-width: 50px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important; 
+  order: 0 !important; 
+}*/
+
+/* Let main section take remaining width 
+.desk-container .col-lg-10.layout-main-section {
+  -webkit-box-flex: 1 !important;
+  -ms-flex: 1 1 auto !important;
+  flex: 1 1 auto !important;
+  max-width: calc(100% - 50px) !important;
+  padding-left: 8px !important; 
+  order: 1 !important; 
+}*/
+
+/* Ensure parent row flows left→right 
+.desk-container .page-content .row,
+.desk-container .container.page-body .row {
+  flex-direction: row !important;
+}*/
+
+/* Remove left padding/margin so sidebar touches the viewport edge 
+.desk-container,
+.desk-container .page-content,
+.desk-container .page-body,
+.desk-container .container.page-body,
+.desk-container .page-container,
+.desk-container .container {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.desk-container .layout-side-section { margin-left: 0 !important; }
+*/
+/* Anchor as vertical stack: icon then label 
+.desk-container .layout-side-section .desk-sidebar .desk-sidebar-item .item-anchor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;                   
+  text-align: center;
+}
+
+
+.desk-container .layout-side-section .desk-sidebar .desk-sidebar-item .sidebar-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;                     
+  border-radius: 10px;
+  margin: 0 0 4px 0;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}*/
+
+/* Show label below icon */
+.desk-container .layout-side-section .desk-sidebar .desk-sidebar-item .sidebar-item-label {
+  display: block !important;
+  max-width: 50px;                  /* follows min-width above */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+/* Selected/hover states */
+.desk-container .layout-side-section .desk-sidebar .desk-sidebar-item.selected .sidebar-item-icon,
+.desk-container .layout-side-section .desk-sidebar .desk-sidebar-item:hover .sidebar-item-icon {
+  background: #eaf3ff;
+}
+
+/* Remove default wide highlight background to kill whitespace */
+.desk-container .desk-sidebar .standard-sidebar-item {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Tighten item gaps */
+.desk-container .desk-sidebar .desk-sidebar-item { margin: 0px 0 !important; }
+
+/* Remove nested child drawers and expand arrows to keep it clean */
+.desk-container .layout-side-section .sidebar-child-item,
+.desk-container .layout-side-section .drop-icon,
+.desk-container .layout-side-section .standard-sidebar-label { display: none !important; }
+
+/* Scrolling */
+.desk-container .layout-side-section .desk-sidebar { max-height: calc(100vh - 90px); overflow-y: auto; margin: 0; }
+
+/* Resizer handle styles */
+.zeno-sidebar-resizer { position:absolute; top:0; right:0; width:4px; height:100%; cursor:col-resize; background:transparent; }
+.zeno-sidebar-resizer:hover { background: rgba(0,0,0,0.06); }
+
+/* Remove horizontal whitespace between sidebar and content */
+.desk-container .col-lg-10.layout-main-section { padding-left: 0 !important; }
+.desk-container .layout-side-section { border-right: 0 !important; }
+
+/* Kill inner left indents so content sits flush left */
+.desk-container .layout-side-section .desk-sidebar,
+.desk-container .layout-side-section .standard-sidebar-section {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Sidebar width variable */
+:root { --zeno-sidebar-w: 72px; }
+
+/* Force grid column to the sidebar width */
+.desk-container .col-lg-2.layout-side-section {
+  -webkit-box-flex: 0 !important;
+  -ms-flex: 0 0 var(--zeno-sidebar-w) !important;
+  flex: 0 0 var(--zeno-sidebar-w) !important;
+  max-width: var(--zeno-sidebar-w) !important;
+}
+
+.desk-container .layout-side-section { min-width: var(--zeno-sidebar-w) !important; }
+.desk-container .col-lg-10.layout-main-section { max-width: calc(100% - var(--zeno-sidebar-w)) !important; }
+
+/* Fit inner custom menu to column */
+.side-menu-icons.menu-icons-with-label a span { max-width: calc(var(--zeno-sidebar-w) - 4px); font-size: 6px; }
+.side-menu-icons.menu-icons-with-label a div svg { width: 49px; height: 49px; }
+
+/* zeno1/public/css/sidebar_fix.css */
+
+.sidebar {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 56px !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+}
+
+.sidebar .sidebar-menu-item {
+  padding: 0px 0 !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.sidebar .sidebar-menu-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.sidebar .sidebar-menu-item a i {
+  font-size: 20px !important;
+  margin: 0 !important;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 0% !important;
+
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+

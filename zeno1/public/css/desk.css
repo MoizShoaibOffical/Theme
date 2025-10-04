@@ -1,0 +1,136 @@
+/* ---- Compact Desk Sidebar (v14/v15) ---- */
+:root {
+    --sidebar-w: 80px;   /* Sidebar width adjust karne ke liye (120–160px best) */
+  }
+  
+  /* Grid column ko narrow karein */
+  .desk-layout,
+  .desk-container {
+    grid-template-columns: var(--sidebar-w) 1fr !important;
+  }
+  
+  /* Left rail width lock */
+  .workspace-sidebar,
+  .desk-sidebar,
+  .page-container .layout-side-section {
+    width: var(--sidebar-w) !important;
+    min-width: var(--sidebar-w) !important;
+    max-width: var(--sidebar-w) !important;
+  }
+  
+  /* Sidebar items center aligned (icon + text) */
+  .workspace-sidebar .sidebar-item,
+  .desk-sidebar .standard-sidebar-item {
+    display: flex !important;
+    flex-direction: column !important;  /* icon upar, text neeche */
+    align-items: center !important;     /* horizontally center */
+    justify-content: center !important; /* vertically center */
+    gap: 6px !important;                /* icon aur text ke beech gap */
+    padding: 12px 8px !important;
+    text-align: center !important;
+  }
+  
+  /* Icons 24px aur center */
+  .workspace-sidebar .sidebar-item .icon,
+  .desk-sidebar .standard-sidebar-item .icon,
+  .workspace-sidebar .sidebar-item svg,
+  .desk-sidebar .standard-sidebar-item svg {
+    font-size: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 24px !important;
+    flex: 0 0 auto !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Labels (text) center aligned */
+  .workspace-sidebar .sidebar-item .sidebar-item-label,
+  .desk-sidebar .standard-sidebar-item .label {
+    font-size: 50px !important;
+    line-height: 50px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Agar text chhupana ho to uncomment karo niche wali lines */
+  .workspace-sidebar .sidebar-item .sidebar-item-label,
+  .desk-sidebar .standard-sidebar-item .label {
+   display: none !important;
+   }
+  
+  /* Home page ke “modules list” wale left rail (old layouts) */
+  .layout-side-section .sidebar-section {
+    width: var(--sidebar-w) !important;
+  }
+  .layout-side-section .section-label {
+    text-align: center !important;
+  }
+  
+  .side-menu-icons.menu-icons-with-label { width: 100% !important; padding: 0; margin: 0; }
+.side-menu-icons.menu-icons-with-label ul { padding-left: 0; margin: 0; }
+.side-menu-icons.menu-icons-with-label li { list-style: none; margin: 8px 0; }
+.side-menu-icons.menu-icons-with-label a { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; padding: 0; }
+.side-menu-icons.menu-icons-with-label a span { font-size: 11px; color: var(--text-color, #111827); max-width: calc(var(--zeno-sidebar-w) - 12px); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.side-menu-icons.menu-icons-with-label a div svg { width: 35px; height: 35px; }
+.side-menu-icons.menu-icons-with-label li.active a div { background: #eaf3ff; border-radius: 10px; padding: 8px; }
+/* Compact icon + label (stacked) workspace sidebar */
+/* ---- Move Header Content to Start from Workspace ---- */
+.page-head {
+    margin-left: var(--sidebar-w, 240px) !important; /* sidebar ke barabar space */
+    padding-left: 120px !important;  /* thoda gap rakho */
+}
+
+/* Agar icon aur text alag se align karna ho */
+.page-head .page-title {
+    margin-left: 130px !important; 
+    margin-top: -90px !important;
+}
+
+.col-lg-2.layout-side-section {
+    position: sticky;
+    top: 0;                          /* Navbar ko touch kare */
+    height: 100vh !important;        /* Full screen height le */
+    margin-top: 0 !important;        /* Negative margin hata do */
+    padding-top: 0 !important;       /* Extra padding hata do */
+    overflow-y: auto;                /* Neeche tak scroll enable */
+}
+.page-head {
+    position: relative;
+    z-index: 2;
+}
+
+.col-lg-2.layout-side-section {
+    margin-top: -60px !important;    /* Page-head ki height jitna upar kheench lo */
+    height: calc(100vh + 60px) !important; /* Neeche tak adjust ho jaaye */
+}
+
+:root{
+    --navbar-h: 56px;     /* top navbar (search bar) ki height */
+    --page-head-h: 60px;  /* "☰ Home" header ki approx height */
+  }
+  
+
+
+  /* Andar wala custom card (#inner-workspace-sidebar) ko column ki 100% height do */
+  #inner-workspace-sidebar{
+    position: relative !important;  /* sticky hatao yahan se */
+    top: 0 !important;
+    height: 100% !important;        /* <-- full column fill */
+    max-height: none !important;    /* inline max-height override */
+    overflow-y: auto !important;    /* apna scroll */
+    /* optional: outer padding/margin se bottom gap na rahe */
+    margin-bottom: 0 !important;
+  }
+  #inner-workspace-sidebar{
+    margin-top: -60px !important;    /* Page-head ki height jitna upar kheench lo */
+    height: calc(100vh + 60px) !important; /* Neeche tak adjust ho jaaye */
+}
+  
+  /* Page bottom padding kam karo taake visual gap na rahe */
+  .page-content{
+    padding-bottom: 0 !important;
+  }
+  
+  .page-head{
+    background: transparent !important;
+  }    

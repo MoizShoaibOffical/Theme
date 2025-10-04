@@ -26,7 +26,18 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/zeno1/css/zeno1.css"
-# app_include_js = "/assets/zeno1/js/zeno1.js"
+app_include_js = [
+    "/assets/zeno1/js/secondary_workspace_sidebar.js",
+    "/assets/zeno1/js/icon_sidebar.js",
+]
+app_include_css = [
+    "/assets/zeno1/css/icon-sidebar.css",
+]
+
+# your_app/your_app/hooks.py
+app_include_css = "/assets/zeno1/css/desk.css"
+
+
 
 # include js, css files in header of web template
 # web_include_css = "/assets/zeno1/css/zeno1.css"
